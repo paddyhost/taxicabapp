@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorTheme">#30cb70</color>
+    <color name="colorSidebar">#34495e</color>
+    <color name="colorSidebaractive">#233342</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#30cb70</color>
+    <color name="colorLabel">#222</color>
+    <color name="colorPagebg">#ecf0f3</color>
+</resources>
