@@ -5,30 +5,249 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.administrator.myapplication.MainActivity"
+    tools:context="com.example.administrator.taxicab.MainActivity"
     tools:showIn="@layout/app_bar_main"
     android:orientation="vertical">
-
-    <!-- our tablayout to display tabs  -->
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tabLayout"
+    
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorTheme"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:tabIndicatorColor="#FFFFFF"
-        app:tabIndicatorHeight="4px"/>
+        android:layout_height="0dp"
+        android:id="@+id/googlemap"
+        android:orientation="vertical"
+        android:background="@mipmap/mapimg"
+        android:layout_weight="6">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@drawable/tab_shadow" />
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_your_location"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:cardCornerRadius="4dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp">
 
-    <!-- View pager to swipe views -->
-    <android.support.v4.view.ViewPager
-        android:id="@+id/pager"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="From"
+                    android:drawableLeft="@drawable/ic_my_location_green_16dp"
+                    android:drawablePadding="16dp"
+                    android:layout_marginBottom="5dp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:text="Plot No. 12, N-8, Cidco, New swami vivekanand hsg. society, Cidco, Aurangabad"
+                    android:textSize="12dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:lines="1"
+                    android:layout_marginLeft="32dp"
+                    android:editable="false"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#ddd"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="10dp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:drawableLeft="@drawable/ic_radio_button_checked_red_16dp"
+                    android:drawablePadding="16dp"
+                    android:text="Enter drop location"
+                    android:textSize="12dp"
+                    android:layout_marginTop="10dp"
+                    android:editable="false"/>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+        
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"/>
+        android:layout_height="0dp"
+        android:id="@+id/cab_view"
+        android:orientation="vertical"
+        android:layout_weight="1.5"
+        android:scrollbars="none">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="15dp"
+            android:background="@drawable/up_shadow"
+            android:paddingTop="12dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="5min"
+                        android:gravity="center_horizontal"
+                        android:textColor="#000"
+                        android:layout_marginBottom="2dp"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/circularview_dark"
+                        android:src="@drawable/ic_micro_car_white"
+                        android:padding="5dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Micro"
+                        android:gravity="center_horizontal"
+                        android:textColor="#000"
+                        android:layout_marginTop="2dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="5min"
+                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="2dp"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/circularview"
+                        android:src="@drawable/ic_mini_car"
+                        android:padding="5dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Micro"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="2dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="5min"
+                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="2dp"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/circularview"
+                        android:src="@drawable/ic_prime_car"
+                        android:padding="5dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Micro"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="2dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="5min"
+                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="2dp"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/circularview"
+                        android:src="@drawable/ic_lux_car"
+                        android:padding="5dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Micro"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="2dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="5min"
+                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="2dp"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/circularview"
+                        android:src="@drawable/ic_auto"
+                        android:padding="5dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Micro"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="2dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="@drawable/up_shadow"
+        android:gravity="center_vertical">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@color/colorTheme"
+            android:text="Ride Know"
+            android:textColor="#fff"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@color/colorSidebar"
+            android:layout_marginLeft="16dp"
+            android:text="Ride Later"
+            android:textColor="#fff"/>
+
+    </LinearLayout>
 
 </LinearLayout>
