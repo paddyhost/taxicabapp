@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.taxicab.confirm_booking"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/lt_driverinfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#f4f4f4"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Driver Information"
+            android:gravity="center_horizontal"
+            android:textSize="16dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/colorLabel"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/default_profile"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mathew hidden"
+            android:gravity="center_horizontal"
+            android:textColor="@color/colorLabel"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+91 9860402800"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:drawablePadding="10dp"
+                android:drawableLeft="@drawable/ic_phone_gray_16dp"
+                android:textColor="@color/colorLabel"/>
+
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="#ddd"
+        android:layout_below="@+id/lt_driverinfo"
+        android:id="@+id/border"/>
+    <TextView
+        android:id="@+id/label_cardetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Car Deatails"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:textSize="14dp"
+        android:textColor="@color/colorLabel"
+        android:layout_below="@+id/border"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/label_cardetails">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/taxiimg"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Maruti suzuki 800"
+                android:textColor="@color/colorLabel"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4 Seaters"
+                android:layout_marginTop="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AC"
+                android:layout_marginTop="5dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Car No."
+                    android:textColor="#222"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MH-20 DG9087"
+                    android:layout_marginLeft="5dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp">
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:text="Confirm Booking"
+            android:textSize="12dp"
+            android:background="@color/colorPrimary"
+            android:textColor="#fff"
+            android:id="@+id/confirm_booking"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:text="Contact driver"
+            android:textSize="12dp"
+            android:layout_marginLeft="10dp"
+            android:background="#2196F3"
+            android:drawablePadding="5dp"
+            android:textColor="#fff"/>
+    </LinearLayout>
+</RelativeLayout>
