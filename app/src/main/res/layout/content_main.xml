@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.administrator.taxicab.MainActivity"
+    tools:context="com.example.administrator.taxicab.HomeScreen"
     tools:showIn="@layout/app_bar_main"
     android:orientation="vertical">
-    
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:id="@+id/googlemap"
-        android:orientation="vertical"
-        android:background="@mipmap/mapimg"
-        android:layout_weight="6">
 
-        <android.support.v7.widget.CardView
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.priya.mymapsdemo.MapsActivity"/>
+
+
+    <android.support.v7.widget.CardView
             android:id="@+id/card_your_location"
             xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_gravity="center"
@@ -46,6 +48,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#fff"
+                    android:id="@+id/myLocation"
                     android:text="Plot No. 12, N-8, Cidco, New swami vivekanand hsg. society, Cidco, Aurangabad"
                     android:textSize="12dp"
                     android:ellipsize="end"
@@ -75,180 +78,203 @@
             </LinearLayout>
 
         </android.support.v7.widget.CardView>
-        
-    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/confirm_address_map_custom_marker"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_candy"/>
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:id="@+id/cab_view"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_weight="1.5">
+        android:layout_alignParentBottom="true">
 
-        <HorizontalScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingLeft="15dp"
-            android:background="@drawable/up_shadow"
-            android:paddingTop="12dp"
-            android:scrollbars="none">
-            <LinearLayout
+            android:layout_height="wrap_content"
+            android:id="@+id/cab_view"
+            android:orientation="vertical">
+
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:paddingLeft="15dp"
+                android:background="@drawable/up_shadow"
+                android:paddingTop="12dp"
+                android:scrollbars="none">
                 <LinearLayout
-                    android:layout_width="70dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center_horizontal">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="5min"
-                        android:gravity="center_horizontal"
-                        android:textColor="#000"
-                        android:layout_marginBottom="2dp"/>
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/circularview_dark"
-                        android:src="@drawable/ic_micro_car_white"
-                        android:padding="5dp"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Micro"
-                        android:gravity="center_horizontal"
-                        android:textColor="#000"
-                        android:layout_marginTop="2dp"/>
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="5min"
+                            android:gravity="center_horizontal"
+                            android:textColor="#000"
+                            android:layout_marginBottom="2dp"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/circularview_dark"
+                            android:src="@drawable/ic_micro_car_white"
+                            android:padding="5dp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Micro"
+                            android:gravity="center_horizontal"
+                            android:textColor="#000"
+                            android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="5min"
+                            android:gravity="center_horizontal"
+                            android:layout_marginBottom="2dp"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/circularview"
+                            android:src="@drawable/ic_mini_car"
+                            android:padding="5dp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Micro"
+                            android:gravity="center_horizontal"
+                            android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="5min"
+                            android:gravity="center_horizontal"
+                            android:layout_marginBottom="2dp"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/circularview"
+                            android:src="@drawable/ic_prime_car"
+                            android:padding="5dp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Micro"
+                            android:gravity="center_horizontal"
+                            android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="5min"
+                            android:gravity="center_horizontal"
+                            android:layout_marginBottom="2dp"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/circularview"
+                            android:src="@drawable/ic_lux_car"
+                            android:padding="5dp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Micro"
+                            android:gravity="center_horizontal"
+                            android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="5min"
+                            android:gravity="center_horizontal"
+                            android:layout_marginBottom="2dp"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/circularview"
+                            android:src="@drawable/ic_auto"
+                            android:padding="5dp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Micro"
+                            android:gravity="center_horizontal"
+                            android:layout_marginTop="2dp"/>
+                    </LinearLayout>
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="70dp"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center_horizontal">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="5min"
-                        android:gravity="center_horizontal"
-                        android:layout_marginBottom="2dp"/>
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/circularview"
-                        android:src="@drawable/ic_mini_car"
-                        android:padding="5dp"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Micro"
-                        android:gravity="center_horizontal"
-                        android:layout_marginTop="2dp"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="70dp"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center_horizontal">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="5min"
-                        android:gravity="center_horizontal"
-                        android:layout_marginBottom="2dp"/>
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/circularview"
-                        android:src="@drawable/ic_prime_car"
-                        android:padding="5dp"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Micro"
-                        android:gravity="center_horizontal"
-                        android:layout_marginTop="2dp"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="70dp"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center_horizontal">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="5min"
-                        android:gravity="center_horizontal"
-                        android:layout_marginBottom="2dp"/>
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/circularview"
-                        android:src="@drawable/ic_lux_car"
-                        android:padding="5dp"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Micro"
-                        android:gravity="center_horizontal"
-                        android:layout_marginTop="2dp"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="70dp"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center_horizontal">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="5min"
-                        android:gravity="center_horizontal"
-                        android:layout_marginBottom="2dp"/>
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/circularview"
-                        android:src="@drawable/ic_auto"
-                        android:padding="5dp"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Micro"
-                        android:gravity="center_horizontal"
-                        android:layout_marginTop="2dp"/>
-                </LinearLayout>
-            </LinearLayout>
-        </HorizontalScrollView>
+            </HorizontalScrollView>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_layout"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/up_shadow"
+            android:gravity="center_vertical">
+
+            <Button
+                android:id="@+id/ridenow"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:text="Ride Know"
+                android:textColor="#fff"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@color/colorSidebar"
+                android:layout_marginLeft="16dp"
+                android:text="Ride Later"
+                android:textColor="#fff"/>
+
+        </LinearLayout>
+
+
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:background="@drawable/up_shadow"
-        android:gravity="center_vertical">
 
-        <Button
-            android:id="@+id/ridenow"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:text="Ride Know"
-            android:textColor="#fff"/>
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:background="@color/colorSidebar"
-            android:layout_marginLeft="16dp"
-            android:text="Ride Later"
-            android:textColor="#fff"/>
-
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>
