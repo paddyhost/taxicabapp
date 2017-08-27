@@ -6,11 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.administrator.taxicab.R;
-
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
-public class confirm_booking extends AppCompatActivity {
+public class Confirm_Booking extends AppCompatActivity {
     private Button confirmbooking;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +21,7 @@ public class confirm_booking extends AppCompatActivity {
         confirmbooking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new SweetAlertDialog(confirm_booking.this, SweetAlertDialog.SUCCESS_TYPE)
+                new SweetAlertDialog(Confirm_Booking.this, SweetAlertDialog.SUCCESS_TYPE)
                         .setTitleText("Congratulations !")
                         .setContentText("Your booking confirmed")
                         .setConfirmText("Done !")
@@ -31,7 +29,7 @@ public class confirm_booking extends AppCompatActivity {
                             @Override
                             public void onClick(SweetAlertDialog sDialog) {
                                 sDialog.dismissWithAnimation();
-                                Intent intent = new Intent(confirm_booking.this,BookingDetails.class);
+                                Intent intent = new Intent(Confirm_Booking.this,BookingDetails.class);
                                 startActivity(intent);
                             }
                         })
