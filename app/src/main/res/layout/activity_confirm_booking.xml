@@ -7,7 +7,24 @@
     tools:context="com.example.administrator.taxicab.Confirm_Booking"
     android:orientation="vertical">
 
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:id="@+id/appbar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:title="@string/app_name"/>
+
+    </android.support.design.widget.AppBarLayout>
+
     <LinearLayout
+        android:layout_below="@id/appbar"
         android:id="@+id/lt_driverinfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
