@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.taxicab.Login"
+    android:background="@drawable/loginbgoverlay">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_car_logo"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Taxi Cab"
+            android:textColor="#fff"
+            android:textSize="30dp"
+            android:textStyle="italic"
+            android:layout_marginTop="-20dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+
+
+        <EditText
+            android:id="@+id/mobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_borderwhite"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:hint="Mobile No."
+            android:drawableLeft="@drawable/ic_phone_white_24dp"
+            android:drawablePadding="16dp"
+            android:paddingBottom="20dp"/>
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_borderwhite"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:hint="Password"
+            android:drawableLeft="@drawable/ic_lock_outline_white_24dp"
+            android:drawablePadding="16dp"
+            android:paddingBottom="20dp"
+            android:layout_marginTop="16dp"
+            android:inputType="textWebPassword"/>
+        <Button
+            android:id="@+id/loginbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="20dp"
+            android:text="Login"
+            android:textColor="#fff"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dont Have Account ?"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:textColor="#fff"/>
+        <TextView
+            android:id="@+id/txtsignup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Signup"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:textSize="18dp"
+            android:textColor="#fff"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+</RelativeLayout>
