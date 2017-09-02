@@ -34,35 +34,59 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true">
 
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_mobileLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:textColorHint="#fff"
+            android:layout_marginTop="5dp">
 
         <EditText
-            android:id="@+id/mobile"
+            android:id="@+id/mobileLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_borderwhite"
             android:textColor="#fff"
+            android:inputType="number"
+            android:maxLength="10"
             android:textColorHint="#fff"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
             android:hint="Mobile No."
             android:drawableLeft="@drawable/ic_phone_white_24dp"
             android:drawablePadding="16dp"
-            android:paddingBottom="20dp"/>
+            android:paddingBottom="15dp"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_passwdLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="@null"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:layout_marginTop="5dp">
+
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/passwordLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_borderwhite"
             android:textColor="#fff"
             android:textColorHint="#fff"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
             android:hint="Password"
+            android:maxLength="8"
             android:drawableLeft="@drawable/ic_lock_outline_white_24dp"
             android:drawablePadding="16dp"
-            android:paddingBottom="20dp"
+            android:paddingBottom="15dp"
             android:layout_marginTop="16dp"
             android:inputType="textWebPassword"/>
+
+        </android.support.design.widget.TextInputLayout>
         <Button
             android:id="@+id/loginbtn"
             android:layout_width="match_parent"

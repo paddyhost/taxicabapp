@@ -9,6 +9,10 @@
     tools:showIn="@layout/app_bar_main"
     android:orientation="vertical">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:map="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -36,44 +40,66 @@
                 android:orientation="vertical"
                 android:padding="10dp">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="From"
-                    android:drawableLeft="@drawable/ic_my_location_green_16dp"
-                    android:drawablePadding="16dp"
-                    android:layout_marginBottom="5dp"/>
+                    android:orientation="vertical">
 
-                <EditText
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="From"
+                        android:drawableLeft="@drawable/ic_my_location_green_16dp"
+                        android:drawablePadding="16dp"
+                        android:layout_marginBottom="5dp"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#fff"
+                        android:id="@+id/myLocation"
+                        android:text="Plot No. 12, N-8, Cidco, New swami vivekanand hsg. society, Cidco, Aurangabad"
+                        android:textSize="12dp"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:lines="1"
+                        android:layout_marginLeft="32dp"
+                        android:editable="false"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="#ddd"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginTop="10dp"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#fff"
-                    android:id="@+id/myLocation"
-                    android:text="Plot No. 12, N-8, Cidco, New swami vivekanand hsg. society, Cidco, Aurangabad"
-                    android:textSize="12dp"
-                    android:ellipsize="end"
-                    android:singleLine="true"
-                    android:lines="1"
-                    android:layout_marginLeft="32dp"
-                    android:editable="false"/>
+                    android:orientation="vertical"
+                    android:layout_marginTop="5dp">
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1px"
-                    android:background="#ddd"
-                    android:layout_marginLeft="32dp"
-                    android:layout_marginTop="10dp"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/dropLocation"
+                        android:clickable="true"
+                        android:background="#fff"
+                        android:drawableLeft="@drawable/ic_radio_button_checked_red_16dp"
+                        android:drawablePadding="16dp"
+                        android:text="Enter drop location"
+                        android:textSize="12dp"
+                        android:padding="5dp"
+                        android:editable="false"/>
 
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#fff"
-                    android:drawableLeft="@drawable/ic_radio_button_checked_red_16dp"
-                    android:drawablePadding="16dp"
-                    android:text="Enter drop location"
-                    android:textSize="12dp"
-                    android:layout_marginTop="10dp"
-                    android:editable="false"/>
+
+
+                </LinearLayout>
+
+
 
             </LinearLayout>
 
@@ -81,8 +107,8 @@
 
     <ImageView
         android:id="@+id/confirm_address_map_custom_marker"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_centerInParent="true"
         android:src="@drawable/ic_candy"/>
 
@@ -92,6 +118,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:id="@+id/car_layout"
         android:layout_alignParentBottom="true">
 
         <LinearLayout
@@ -126,8 +153,9 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/circularview_dark"
-                            android:src="@drawable/ic_micro_car_white"
+                            android:id="@+id/car1"
+                            android:background="@drawable/circularview_selected"
+                            android:src="@drawable/ic_micro_car"
                             android:padding="5dp"/>
                         <TextView
                             android:layout_width="match_parent"
@@ -153,6 +181,7 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/circularview"
                             android:src="@drawable/ic_mini_car"
+                            android:id="@+id/car2"
                             android:padding="5dp"/>
                         <TextView
                             android:layout_width="match_parent"
@@ -177,6 +206,7 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/circularview"
                             android:src="@drawable/ic_prime_car"
+                            android:id="@+id/car3"
                             android:padding="5dp"/>
                         <TextView
                             android:layout_width="match_parent"
@@ -201,6 +231,7 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/circularview"
                             android:src="@drawable/ic_lux_car"
+                            android:id="@+id/car4"
                             android:padding="5dp"/>
                         <TextView
                             android:layout_width="match_parent"
@@ -225,6 +256,7 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/circularview"
                             android:src="@drawable/ic_auto"
+                            android:id="@+id/car5"
                             android:padding="5dp"/>
                         <TextView
                             android:layout_width="match_parent"
@@ -277,4 +309,8 @@
     </LinearLayout>
 
 
+    </RelativeLayout>
+
 </RelativeLayout>
+
+
