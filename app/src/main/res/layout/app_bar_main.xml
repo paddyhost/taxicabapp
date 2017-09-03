@@ -33,7 +33,6 @@
     <include layout="@layout/content_main"
         android:id="@+id/main_layout"/>
 
-
     </LinearLayout>
 
 

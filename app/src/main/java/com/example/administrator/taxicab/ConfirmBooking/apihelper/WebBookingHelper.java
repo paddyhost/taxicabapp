@@ -203,7 +203,6 @@ public class WebBookingHelper
 
                         else
                         {
-                            //Toast.makeText(activity,"Registration Failed",Toast.LENGTH_SHORT).show();
                             booking_table.setBOOKING_STATUS(Booking_Table.STATUS_UPDATE_FAILED);
                             EventBus.getDefault().post(booking_table);
 

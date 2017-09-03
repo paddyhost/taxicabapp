@@ -87,7 +87,6 @@ public class PrefManager {
         editor.commit();
     }
 
-
     public HashMap<String, String> getUserDetails() {
         HashMap<String, String> profile = new HashMap<>();
        // profile.put("name", pref.getString(KEY_NAME, null));

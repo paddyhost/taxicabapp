@@ -94,7 +94,6 @@ public class Driver_Table_Helper
     {
         try
         {
-
             SQLiteDatabase db =  DatabaseHandler.getInstance(context).getWritableDatabase();
             ContentValues values = new ContentValues();
 

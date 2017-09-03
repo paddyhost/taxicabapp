@@ -140,7 +140,6 @@ public class SetPassword extends AppCompatActivity
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
             String currentDateandTime = sdf.format(new Date());
 
-
             UserTable userDetails = UserTable.getUsertable(userName,userMobile, edtPasswrd.getText().toString(), null, userEmail, currentDateandTime, "", "1111", "2222");
             WebUserRegistrationHelper.newUserRegistration(SetPassword.this, userDetails);
 

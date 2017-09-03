@@ -158,7 +158,6 @@ public class UserRegistration_Helper
 
             db.execSQL("DELETE FROM "+ UserTable.TABLE_USER_REGISTRATION); //delete all rows in a table
 
-
             Toast.makeText(context,"User Deleted Successfully",Toast.LENGTH_SHORT).show();
 
 

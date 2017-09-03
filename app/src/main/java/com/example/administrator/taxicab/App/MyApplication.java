@@ -26,7 +26,6 @@ import com.example.administrator.taxicab.Utils.LruBitmapCache;
 
 public class MyApplication  extends MultiDexApplication {
 
-
     public static final String TAG = MyApplication.class
             .getSimpleName();
 
