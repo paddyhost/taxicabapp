@@ -29,6 +29,7 @@ public class CustomSupportMapFragment extends SupportMapFragment
         return mMapWrapperLayout;
     }
 
+
     @Override
     public View getView() {
         return mOriginalView;

@@ -9,7 +9,8 @@ import android.widget.Button;
 import com.example.administrator.taxicab.Activity.HomeScreen;
 import com.example.administrator.taxicab.R;
 
-public class BookingDetails extends AppCompatActivity {
+public class BookingDetails extends AppCompatActivity
+{
     private Button goback;
 
     @Override

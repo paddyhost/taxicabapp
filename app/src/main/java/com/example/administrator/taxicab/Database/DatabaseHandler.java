@@ -46,6 +46,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db)
     {
+
         db.execSQL(UserTable.CREATE_USER_REGISTRATION_TABLE);
         db.execSQL(Booking_Table.CREATE_BOOKING_TABLE);
         db.execSQL(Driver_Table.CREATE_DRIVER_TABLE);

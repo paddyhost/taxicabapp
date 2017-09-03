@@ -58,6 +58,7 @@ public class WebUserRegistrationHelper
                                 userTable.setLANGUTUDE_VALUE(result.getString("langitude"));
                                 userTable.setLATITUDE_VALUE(result.getString("latitude"));
 
+
                             UserRegistration_Helper.deleteAllUserInfo(activity);
                             if(UserRegistration_Helper.insertUserRegistrationData(activity,userTable))
                             {

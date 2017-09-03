@@ -40,8 +40,7 @@ public class Login extends AppCompatActivity
     public void onStart() {
         EventBus.getDefault().register(this);
         super.onStart();// ATTENTION: This was auto-generated to implement the App Indexing API.
-// See https://g.co/AppIndexing/
-
+// See https://g.co/AppIndexing
 
     }
 

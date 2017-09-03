@@ -27,6 +27,7 @@ public class Splashscreen extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+
         pref = new PrefManager(this);
 
         new Handler().postDelayed(new Runnable() {

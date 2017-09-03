@@ -4,5 +4,4 @@
         android:duration="1000"
         android:fromYDelta="0"
         android:toYDelta="100%p" />
-
 </set>

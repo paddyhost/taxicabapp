@@ -42,6 +42,7 @@ public class Signup extends AppCompatActivity {
     {
         pref = new PrefManager(this);
 
+
         signup = (Button) findViewById(R.id.signup);
         edtUserName=(EditText) findViewById(R.id.name);
         edtMobile=(EditText)findViewById(R.id.mobile);

@@ -161,6 +161,7 @@ public class Booking_Table
         this.RIDE_DATETIME_VALUE = RIDE_DATETIME_VALUE;
     }
 
+
     public int getBOOK_RIDE_STATUS() {
         return BOOK_RIDE_STATUS;
     }

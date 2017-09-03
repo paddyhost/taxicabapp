@@ -28,7 +28,6 @@ public class WebNearLocationsApiHelper
 {
     public static final String urlNearLocations=API_HOST_ADDRESS+"/getNearVehicles";
 
-
     public static boolean getNearLocations(final Activity activity, final String latitude, final String longitude)
     {
         StringRequest strReq = new StringRequest(Request.Method.POST, urlNearLocations, new Response.Listener<String>() {
