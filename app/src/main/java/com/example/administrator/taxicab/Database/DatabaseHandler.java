@@ -3,8 +3,11 @@ package com.example.administrator.taxicab.Database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
-import com.example.administrator.taxicab.Database.UserDatabase.UserTable;
+import com.example.administrator.taxicab.ConfirmBooking.database.Booking_Table;
+import com.example.administrator.taxicab.ConfirmBooking.database.Driver_Table;
+import com.example.administrator.taxicab.UserRegistration.database.UserTable;
 
 /**
  * Created by shree on 27/08/2017.
@@ -44,7 +47,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db)
     {
         db.execSQL(UserTable.CREATE_USER_REGISTRATION_TABLE);
-
+        db.execSQL(Booking_Table.CREATE_BOOKING_TABLE);
+        db.execSQL(Driver_Table.CREATE_DRIVER_TABLE);
+        Log.d("Table created","");
     }
 
     // Upgrading database
@@ -52,6 +57,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if existed
         db.execSQL("DROP TABLE IF EXISTS " +UserTable.TABLE_USER_REGISTRATION);
+        db.execSQL("DROP TABLE IF EXISTS " +Booking_Table.BOOKING_TABLE);
+        db.execSQL("DROP TABLE IF EXISTS " +Driver_Table.DRIVER_TABLE);
+
         // Create tables again
         onCreate(db);
     }

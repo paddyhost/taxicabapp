@@ -1,4 +1,4 @@
-package com.example.administrator.taxicab.Database.UserDatabase;
+package com.example.administrator.taxicab.UserRegistration.database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -172,51 +172,4 @@ public class UserRegistration_Helper
         }
     }
 
-   /* private static void insertDefoultvalue(Context context)
-    {
-        //insert chat default notifications
-        Notification_Table notification_table_chat=Notification_Table.getNotification_table();
-        notification_table_chat.setCATEGORY_VALUE(Notification_Table.CHAT);
-        notification_table_chat.setSTATUS_VALUE(Notification_Table.ACTIVE);
-        notification_table_chat.setPOPUP_TYPE_VALUE(Notification_Table.POPALWAYSdISPLAY);
-        notification_table_chat.setVIBRATE_TYPE_VALUE(Vibrate.VIBRATE_DEFAULT);
-        notification_table_chat.setRINGTONE_VALUE("Defoult");
-        NotificationHelper.setNotificationSetting(context,notification_table_chat);
-
-        //insert group default notifications
-        Notification_Table notification_table_group=Notification_Table.getNotification_table();
-        notification_table_group.setCATEGORY_VALUE(Notification_Table.GROUP);
-        notification_table_group.setSTATUS_VALUE(Notification_Table.ACTIVE);
-        notification_table_group.setPOPUP_TYPE_VALUE(Notification_Table.POPALWAYSdISPLAY);
-        notification_table_group.setVIBRATE_TYPE_VALUE(Vibrate.VIBRATE_DEFAULT);
-        notification_table_group.setRINGTONE_VALUE("Defoult");
-        NotificationHelper.setNotificationSetting(context,notification_table_group);
-
-        //insert number default notifications
-        Notification_Table notification_table_number=Notification_Table.getNotification_table();
-        notification_table_number.setCATEGORY_VALUE(Notification_Table.NUMBER);
-        notification_table_number.setSTATUS_VALUE(Notification_Table.DESABLE);
-        notification_table_number.setPOPUP_TYPE_VALUE(Notification_Table.POPALWAYSdISPLAY);
-        notification_table_number.setVIBRATE_TYPE_VALUE(Vibrate.VIBRATE_DEFAULT);
-        notification_table_number.setRINGTONE_VALUE("Defoult");
-        NotificationHelper.setNotificationSetting(context,notification_table_number);
-
-        //setting default privacy settings
-        PrivacySetting_Table privacy_setting_table=PrivacySetting_Table.getPrivacySettingObject();
-        Privacy_Setting_Helper.setPrivacySetting(context,privacy_setting_table);
-
-        //setting default font style
-        Table_Font_Settings font_style_settings=Table_Font_Settings.getFontSettings_table();
-        font_style_settings.setFontStyleValue(Typeface.NORMAL);
-        font_style_settings.setFontSettingTypeValue(Table_Font_Settings.FONT_STYLE);
-        Font_Settings_Helper.setFontSettings(context,font_style_settings);
-
-        //setting default font size
-        Table_Font_Settings font_size_settings=Table_Font_Settings.getFontSettings_table();
-        font_size_settings.setFontSizeValue(16);
-        font_size_settings.setFontSettingTypeValue(Table_Font_Settings.FONT_SIZE);
-        Font_Settings_Helper.setFontSettings(context,font_size_settings);
-
-
-    }*/
-}
+  }

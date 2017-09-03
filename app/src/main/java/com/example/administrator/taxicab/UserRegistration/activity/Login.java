@@ -1,10 +1,6 @@
-package com.example.administrator.taxicab;
+package com.example.administrator.taxicab.UserRegistration.activity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.location.LocationManager;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -17,11 +13,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.administrator.taxicab.Activity.HomeScreen;
 import com.example.administrator.taxicab.App.MyApplication;
 import com.example.administrator.taxicab.App.PrefManager;
-import com.example.administrator.taxicab.Database.UserDatabase.UserRegistration_Helper;
-import com.example.administrator.taxicab.Database.UserDatabase.UserTable;
-import com.example.administrator.taxicab.Database.UserDatabase.WebUserRegistrationAPI.WebUserRegistrationHelper;
+import com.example.administrator.taxicab.UserRegistration.database.UserRegistration_Helper;
+import com.example.administrator.taxicab.UserRegistration.database.UserTable;
+import com.example.administrator.taxicab.UserRegistration.apihelper.WebUserRegistrationHelper;
+import com.example.administrator.taxicab.R;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

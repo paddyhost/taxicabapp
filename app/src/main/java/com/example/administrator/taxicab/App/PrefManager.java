@@ -28,8 +28,7 @@ public class PrefManager {
     private static final String KEY_IS_LOGGED_IN = "isLoggedIn";
     private static final String KEY_IS_LOGGED_OUT = "isLoggedOut";
     private static final String ClIENT_MASTER_ID = "clientmaster_id";
-    private static final String UNIQUE_ID = "uniqueid";
-    private static final String KEY_MOBILE = "mobile";
+   private static final String KEY_MOBILE = "mobile";
 
 
 
@@ -82,7 +81,6 @@ public class PrefManager {
         editor.remove(KEY_IS_LOGGED_IN);
         editor.remove(KEY_IS_LOGGED_OUT);
         editor.remove(ClIENT_MASTER_ID);
-        editor.remove(UNIQUE_ID);
         editor.remove(pref.getAll().toString());
         editor.clear();
         editor.apply();
@@ -98,20 +96,14 @@ public class PrefManager {
         return profile;
     }
 
-    public void setregistrationSucess( String client_master_id,String unique_id) {
+    public void setRegistrationSucess( String client_master_id) {
 
         editor.putString(ClIENT_MASTER_ID, client_master_id);
-        editor.putString(UNIQUE_ID, unique_id);
         editor.commit();
     }
     public String getclient_master_id()
     {
         return pref.getString(ClIENT_MASTER_ID, null);
-    }
-
-    public String getunique_id()
-    {
-        return pref.getString(UNIQUE_ID, null);
     }
 
 

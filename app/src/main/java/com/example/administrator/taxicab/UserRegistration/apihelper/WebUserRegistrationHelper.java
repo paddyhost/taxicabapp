@@ -1,4 +1,4 @@
-package com.example.administrator.taxicab.Database.UserDatabase.WebUserRegistrationAPI;
+package com.example.administrator.taxicab.UserRegistration.apihelper;
 
 import android.app.Activity;
 import android.widget.Toast;
@@ -12,8 +12,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.example.administrator.taxicab.App.MyApplication;
 import com.example.administrator.taxicab.App.PrefManager;
-import com.example.administrator.taxicab.Database.UserDatabase.UserRegistration_Helper;
-import com.example.administrator.taxicab.Database.UserDatabase.UserTable;
+import com.example.administrator.taxicab.UserRegistration.database.UserRegistration_Helper;
+import com.example.administrator.taxicab.UserRegistration.database.UserTable;
 
 import org.greenrobot.eventbus.EventBus;
 import org.json.JSONArray;
@@ -48,10 +48,6 @@ public class WebUserRegistrationHelper
                         {
                             JSONArray rs=responce.getJSONArray("result");
                             JSONObject result=rs.getJSONObject(0);
-                            if(UserRegistration_Helper.insertUserRegistrationData(activity,userTable))
-                            {
-                                Toast.makeText(activity,"Registration Successful",Toast.LENGTH_SHORT).show();
-                                new PrefManager(activity).createLogin(new PrefManager(activity).getMobileNumber());
 
                                 userTable.setUSERID_VALUE(result.getString("id"));
                                 userTable.setUSER_NAME_VALUE(result.getString("Name"));
@@ -61,12 +57,16 @@ public class WebUserRegistrationHelper
                                 //userTable.setIMAGE_VALUE(result.getString("photo"));
                                 userTable.setLANGUTUDE_VALUE(result.getString("langitude"));
                                 userTable.setLATITUDE_VALUE(result.getString("latitude"));
-                                UserRegistration_Helper.updateUserInfo(activity,userTable);
 
+                            UserRegistration_Helper.deleteAllUserInfo(activity);
+                            if(UserRegistration_Helper.insertUserRegistrationData(activity,userTable))
+                            {
+                                Toast.makeText(activity,"Registration Successful",Toast.LENGTH_SHORT).show();
+                                new PrefManager(activity).createLogin(new PrefManager(activity).getMobileNumber());
+                                new PrefManager(activity).setRegistrationSucess(userTable.getUSERID_VALUE());
 
                                 userTable.setUSER_REGISTER_STATUS(UserTable.USER_REGISTER_SUCCESS);
                                 EventBus.getDefault().post(userTable);
-
 
                               }
                             else

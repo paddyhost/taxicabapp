@@ -1,4 +1,4 @@
-package com.example.administrator.taxicab.Database.UserDatabase;
+package com.example.administrator.taxicab.UserRegistration.database;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

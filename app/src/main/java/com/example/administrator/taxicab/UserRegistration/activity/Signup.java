@@ -1,4 +1,4 @@
-package com.example.administrator.taxicab;
+package com.example.administrator.taxicab.UserRegistration.activity;
 
 import android.content.Intent;
 import android.support.design.widget.TextInputLayout;

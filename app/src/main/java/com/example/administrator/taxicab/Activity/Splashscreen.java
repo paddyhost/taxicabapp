@@ -1,10 +1,6 @@
-package com.example.administrator.taxicab;
+package com.example.administrator.taxicab.Activity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.location.LocationManager;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -12,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.administrator.taxicab.App.MyApplication;
 import com.example.administrator.taxicab.App.PrefManager;
+import com.example.administrator.taxicab.UserRegistration.activity.Login;
+import com.example.administrator.taxicab.R;
 
 /**
  * Created by shree on 31/08/2017.

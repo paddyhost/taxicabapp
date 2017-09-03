@@ -1,4 +1,4 @@
-package com.example.administrator.taxicab;
+package com.example.administrator.taxicab.Activity;
 
 import android.Manifest;
 import android.content.Context;
@@ -9,23 +9,25 @@ import android.graphics.drawable.BitmapDrawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
-import android.location.LocationManager;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -33,8 +35,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.administrator.taxicab.App.MyApplication;
 import com.example.administrator.taxicab.App.PrefManager;
+import com.example.administrator.taxicab.ConfirmBooking.activity.Confirm_Booking;
+import com.example.administrator.taxicab.UserRegistration.activity.Login;
+import com.example.administrator.taxicab.R;
+import com.example.administrator.taxicab.Utils.MapUtils.CustomSupportMapFragment;
+import com.example.administrator.taxicab.Utils.MapUtils.TouchableWrapper;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
@@ -82,6 +88,11 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
     public static final int MY_PERMISSIONS_REQUEST_FINE_LOCATION = 99;
     private PrefManager pref;
     private ImageView imgCar1,imgCar2,imgCar3,imgCar4,imgCar5;
+    private AppBarLayout appBarLayout;
+    private Animation animShow, animHide,animHideReverse,animShowReverse;
+    private ActionBar actionbar;
+    private View mainLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,14 +107,108 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
         }
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+        CustomSupportMapFragment mapFragment = (CustomSupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
+
+        mapFragment.setOnDragListener(new TouchableWrapper.OnDragListener() {
+            @Override
+            public boolean onDrag(MotionEvent motionEvent) {
+                switch (motionEvent.getActionMasked())
+                {
+                    case MotionEvent.ACTION_MOVE:
+                        Log.d("ON_MOVE", String.format("ME: %s", motionEvent));
+
+                        carLayout.startAnimation( animHide );
+                        carLayout.setVisibility(View.GONE);
+
+                       /* appBarLayout.startAnimation( animShowReverse );
+                        appBarLayout.setVisibility(View.GONE);
+                        toolbar.startAnimation( animShowReverse );
+                        toolbar.setVisibility(View.GONE);
+
+                        //setDrawerState( false);
+
+                        if(actionbar!=null)
+                        {
+                            if(actionbar.isShowing())
+                            {
+                                actionbar.hide();
+                            }
+                        }
+*/
+
+                        break ;
+                    case MotionEvent.ACTION_DOWN:
+                        Log.d("ON_DOWN", String.format("ME: %s", motionEvent));
+
+                        carLayout.startAnimation( animHide );
+                        carLayout.setVisibility(View.GONE);
+
+/*
+                        appBarLayout.startAnimation( animShowReverse );
+                        appBarLayout.setVisibility(View.GONE);
+                        toolbar.startAnimation( animShowReverse );
+                        toolbar.setVisibility(View.GONE);
+
+                        //setDrawerState( false);
+                        if(actionbar!=null)
+                        {
+                           if(actionbar.isShowing())
+                           {
+                               actionbar.hide();
+                           }
+                        }
+*/
+
+
+
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        Log.d("ON_UP", String.format("ME: %s", motionEvent));
+                        int code = motionEvent.getAction() & MotionEvent.ACTION_MASK;
+                        if ((code == MotionEvent.ACTION_POINTER_UP) || (code == MotionEvent.ACTION_UP) || (code == MotionEvent.ACTION_CANCEL))
+                        {
+                            carLayout.setVisibility(View.VISIBLE);
+                            carLayout.startAnimation( animShow );
+
+/*
+                            appBarLayout.setVisibility(View.VISIBLE);
+                            appBarLayout.startAnimation( animHideReverse );
+
+                            toolbar.setVisibility(View.VISIBLE);
+                            toolbar.startAnimation( animHideReverse );
+                            setSupportActionBar(toolbar);
+*/
+
+                            //setDrawerState( true);
+
+                            return true;
+                        }
+
+                        carLayout.setVisibility(View.VISIBLE);
+                        carLayout.startAnimation( animShow );
+
+/*
+                        appBarLayout.setVisibility(View.VISIBLE);
+                        appBarLayout.startAnimation( animHideReverse );
+
+                        toolbar.setVisibility(View.VISIBLE);
+                        toolbar.startAnimation( animHideReverse );
+                        setSupportActionBar(toolbar);
+*/
+
+                        //setDrawerState( false);
+
+
+                        break;
+
+                }
+                    return true;
+            }
+        });
 
         mapFragment.getMapAsync(this);
         mapView = mapFragment.getView();
-
-
-        //holies-beam.000webhostapp.com/api/client
 
         openGooglePlacePicker();
         rideNowClickListener();
@@ -117,20 +222,28 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
           pref=new PrefManager(this);
           toolbar = (Toolbar) findViewById(R.id.toolbar);
           carLayout=(LinearLayout)findViewById(R.id.car_layout);
+          appBarLayout=(AppBarLayout)findViewById(R.id.appbar_layout);
+          mainLayout=(View)findViewById(R.id.main_layout);
           setSupportActionBar(toolbar);
+          actionbar=getSupportActionBar();
 
           locationTxt=(TextView)findViewById(R.id.myLocation);
           dropLocationTxt=(TextView)findViewById(R.id.dropLocation);
 
           drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
           toggle = new ActionBarDrawerToggle(
-                  this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                  this, drawer,toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
           drawer.setDrawerListener(toggle);
           toggle.syncState();
 
           navigationView = (NavigationView) findViewById(R.id.nav_view);
           navigationView.setNavigationItemSelectedListener(this);
           ridenow = (Button)findViewById(R.id.ridenow);
+
+          animShow = AnimationUtils.loadAnimation( this, R.anim.show);
+          animHide = AnimationUtils.loadAnimation( this, R.anim.hide);
+          animShowReverse = AnimationUtils.loadAnimation( this, R.anim.show_reverse);
+          animHideReverse = AnimationUtils.loadAnimation( this, R.anim.hide_reverse);
 
           imgCar1=(ImageView)findViewById(R.id.car1);
           imgCar2=(ImageView)findViewById(R.id.car2);
@@ -139,6 +252,22 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
           imgCar5=(ImageView)findViewById(R.id.car5);
 
       }
+
+      public void setDrawerState(boolean isEnabled) {
+        if ( isEnabled ) {
+            drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+            toggle.onDrawerStateChanged(DrawerLayout.LOCK_MODE_UNLOCKED);
+            toggle.setDrawerIndicatorEnabled(true);
+            toggle.syncState();
+
+        }
+        else {
+            drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+            toggle.onDrawerStateChanged(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+            toggle.setDrawerIndicatorEnabled(false);
+            toggle.syncState();
+        }
+    }
 
       private void openGooglePlacePicker()
       {
@@ -183,44 +312,56 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
           imgCar1.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
-                  imgCar1.setActivated(true);
                   imgCar1.setBackgroundResource(R.drawable.circularview_selected);
+                  imgCar2.setBackgroundResource(R.drawable.circularview);
+                  imgCar3.setBackgroundResource(R.drawable.circularview);
+                  imgCar4.setBackgroundResource(R.drawable.circularview);
+                  imgCar5.setBackgroundResource(R.drawable.circularview);
               }
           });
           imgCar2.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
-                  imgCar2.setActivated(true);
+                  imgCar1.setBackgroundResource(R.drawable.circularview);
                   imgCar2.setBackgroundResource(R.drawable.circularview_selected);
+                  imgCar3.setBackgroundResource(R.drawable.circularview);
+                  imgCar4.setBackgroundResource(R.drawable.circularview);
+                  imgCar5.setBackgroundResource(R.drawable.circularview);
               }
           });
           imgCar3.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
-                  imgCar2.setActivated(true);
+                  imgCar1.setBackgroundResource(R.drawable.circularview);
+                  imgCar2.setBackgroundResource(R.drawable.circularview);
                   imgCar3.setBackgroundResource(R.drawable.circularview_selected);
+                  imgCar4.setBackgroundResource(R.drawable.circularview);
+                  imgCar5.setBackgroundResource(R.drawable.circularview);
               }
           });
           imgCar4.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
-                  imgCar2.setActivated(true);
+                  imgCar1.setBackgroundResource(R.drawable.circularview);
+                  imgCar2.setBackgroundResource(R.drawable.circularview);
+                  imgCar3.setBackgroundResource(R.drawable.circularview);
                   imgCar4.setBackgroundResource(R.drawable.circularview_selected);
+                  imgCar5.setBackgroundResource(R.drawable.circularview);
               }
           });
           imgCar5.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
-                  imgCar2.setActivated(true);
+                  imgCar1.setBackgroundResource(R.drawable.circularview);
+                  imgCar2.setBackgroundResource(R.drawable.circularview);
+                  imgCar3.setBackgroundResource(R.drawable.circularview);
+                  imgCar4.setBackgroundResource(R.drawable.circularview);
                   imgCar5.setBackgroundResource(R.drawable.circularview_selected);
               }
           });
 
-          if(imgCar1.isActivated())
-          {
+         }
 
-          }
-      }
 
     /**
      * Manipulates the map once available.
@@ -333,13 +474,32 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
         double longitude = 75.36875165998936;
 
 // create marker
-        MarkerOptions marker = new MarkerOptions().position(new LatLng(latitude, longitude)).title("Hello Maps");
+        MarkerOptions marker = new MarkerOptions().position(new LatLng(latitude, longitude));
 
 // Changing marker icon
         marker.icon(BitmapDescriptorFactory.fromBitmap(smallMarker));
+        marker.rotation(location.getBearing()).flat(true).anchor(0.5f, 0.5f)
+                .alpha((float) 0.91);
 
 // adding marker
         mCurrLocationMarker=mMap.addMarker(marker);
+
+
+        // latitude and longitude
+        double latitude1 = 19.88743688238253;
+        double longitude1 = 75.36426030099392;
+
+// create marker
+        MarkerOptions marker1 = new MarkerOptions().position(new LatLng(latitude1, longitude1));
+
+// Changing marker icon
+        marker1.icon(BitmapDescriptorFactory.fromBitmap(smallMarker));
+        marker1.rotation(location.getBearing()).flat(true).anchor(0.5f, 0.5f)
+                .alpha((float) 0.91);
+
+// adding marker
+        mCurrLocationMarker=mMap.addMarker(marker1);
+
 
         //move map camera
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
@@ -353,15 +513,47 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
             LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
         }
 
+
+
         mMap.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener() {
             @Override
             public void onCameraChange(CameraPosition cameraPosition) {
 
                 locationTxt.setText(getAddress(getApplicationContext(),cameraPosition.target.latitude,cameraPosition.target.longitude));
 
-                Log.i("centerLat", String.valueOf(cameraPosition.target.latitude));
+                Log.i("Latitude", String.valueOf(cameraPosition.target.latitude));
+                Log.i("Langitude", String.valueOf(cameraPosition.target.longitude));
 
-              //  Log.i("centerLong", String.valueOf(cameraPosition.target.longitude));
+/*
+                if(!mMapIsTouched)
+                {
+                    carLayout.animate()
+                            .translationY(0)
+                            .alpha(0.0f)
+                            .setListener(new AnimatorListenerAdapter() {
+                                @Override
+                                public void onAnimationEnd(Animator animation) {
+                                    super.onAnimationEnd(animation);
+                                    carLayout.setVisibility(View.GONE);
+                                }
+                            });
+
+                }
+                else
+                {
+                    // Prepare the View for the animation
+                    carLayout.setVisibility(View.VISIBLE);
+                    carLayout.setAlpha(0.0f);
+
+// Start the animation
+                    carLayout.animate()
+                            .translationY(carLayout.getHeight())
+                            .alpha(1.0f)
+                            .setListener(null);
+                }
+*/
+
+                //  Log.i("centerLong", String.valueOf(cameraPosition.target.longitude));
             }
         });
 
@@ -547,4 +739,4 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
     }
 
 
-}
+   }

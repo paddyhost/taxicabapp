@@ -1,4 +1,4 @@
-package com.example.administrator.taxicab;
+package com.example.administrator.taxicab.UserRegistration.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,9 +11,11 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.administrator.taxicab.Activity.HomeScreen;
 import com.example.administrator.taxicab.App.MyApplication;
-import com.example.administrator.taxicab.Database.UserDatabase.UserTable;
-import com.example.administrator.taxicab.Database.UserDatabase.WebUserRegistrationAPI.WebUserRegistrationHelper;
+import com.example.administrator.taxicab.UserRegistration.database.UserTable;
+import com.example.administrator.taxicab.UserRegistration.apihelper.WebUserRegistrationHelper;
+import com.example.administrator.taxicab.R;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
